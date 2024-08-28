@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-""" 2-app.py
-    A simple flask ask implementing i18n and i10n
+"""A simple flask app
 """
 
 
@@ -8,46 +7,39 @@ from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
-app = Flask(__name__)
+class Config(object):
+    """_summary_
 
-
-class Config:
-    """Class to set the configuration for the app.
-    
-    Keyword arguments:
-    argument -- description
-    Return: return_description
+    Returns:
+            _type_: _description_
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
-    
 
+
+# configure the flask app
+app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
 
 @babel.localeselector
 def get_locale():
-    """Function find the best match for the supported languages.
-    
-    Keyword arguments:
-    argument -- description
-    Return: return_description
+    """_summary_
+
+    Returns:
+            _type_: _description_
     """
-    return request.accetpt_languages.best_match(app.config['LANGUAGES'])
-  
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/')
-def home():
-    """Home page
-    
-    Keyword arguments:
-    argument -- description
-    Return: return_description
+def index():
+    """_summary_
     """
-    
     return render_template('2-index.html')
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port="5000", host='0.0.0.0')
+    app.run(port="5000", host="0.0.0.0", debug=True)
