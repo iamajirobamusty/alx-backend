@@ -19,7 +19,7 @@ class Config:
     Return: return_description
     """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LANGUAGE = 'en'
+    BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
     
 
@@ -35,8 +35,7 @@ def get_locale():
     argument -- description
     Return: return_description
     """
-    
-    return request.accetpt_languages.best_match(app.config["LANGUAGES"])
+    return request.accetpt_languages.best_match(app.config['LANGUAGES'])
   
 
 @app.route('/')
@@ -48,7 +47,7 @@ def home():
     Return: return_description
     """
     
-    return render_template('index.html')
+    return render_template('2-index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port="5000", host='0.0.0.0')
