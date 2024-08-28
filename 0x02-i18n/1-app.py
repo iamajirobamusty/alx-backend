@@ -14,7 +14,7 @@ from flask_babel import Babel
 app = Flask(__name__)
 
 
-class Config:
+class Config(object):
     """Class to set the configuration for the app.
     
     Keyword arguments:
