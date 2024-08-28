@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 
+
 """
 1-main.py
 A simple flask app representing internationalization and localization
 """
+
 
 from flask import Flask, render_template
 from flask_babel import Babel
 
 
 app = Flask(__name__)
+
 
 class Config:
     """Class to set the configuration for the app.
