@@ -18,10 +18,9 @@ class Config:
     argument -- description
     Return: return_description
     """
-    
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LANGUAGE = 'en'
-    BABEL_DEFAULT_TIMEZONE ='UTC'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 app.config.from_object(Config)
 babel = Babel(app)
